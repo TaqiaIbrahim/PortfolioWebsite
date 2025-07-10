@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Blog>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <a asp-action="AddOrEdit" class="btn btn-primary mb-3">Add</a>
+
+            <h4 class="card-title">About Me</h4>
+            <br />
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td> @item.Id</td>
+                                <td> @item.Date</td>
+                                <td> @item.Description</td>
+                                
+                                <td>
+                                   <a class="btn btn-info " asp-action="AddOrEdit" asp-route-id="@item.Id">Edit</a>
+                                   <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                                </td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
